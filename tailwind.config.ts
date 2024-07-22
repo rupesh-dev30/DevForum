@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -38,8 +39,8 @@ const config: Config = {
         "accent-blue": "#1DA1F2",
       },
       fontFamily: {
-        inter: ["var(--font-inter"],
-        spaceGrotesk: ["var(--font-spaceGrotesk"],
+        inter: ["var(--font-inter)"],
+        spaceGrotesk: ["var(--font-spaceGrotesk)"],
       },
       boxShadow: {
         "light-100":
@@ -74,6 +75,4 @@ const config: Config = {
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };
-
 export default config;
-
