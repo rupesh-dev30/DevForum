@@ -15,7 +15,7 @@ export default function Navbar() {
           height={23}
           alt="DevForum"
         />
-        <p className="h2-bold font-spaceGrotesk text-dark-100 dark:text-light-900 max-sm:hidden">
+        <p className="h2-bold font-spaceGrotesk text-dark-100 dark:text-light-900">
           Dev <span className="text-primary-500">Forum</span>
         </p>
       </Link>
