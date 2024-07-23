@@ -19,7 +19,7 @@ export default function layout({ children }: { children: ReactNode }) {
         <RightSidebar />
       </div>
 
-      Toaster
+      {/* Toaster */}
     </main>
   );
 }
