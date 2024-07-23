@@ -1,5 +1,12 @@
-// index.d.ts -> TypeScript file defination
 import { BADGE_CRITERIA } from "@/constants";
+
+export type ThemeName = "light" | "dark" | "system";
+
+export interface IThemes {
+  value: ThemeName;
+  label: string;
+  icon: string;
+}
 
 export interface SidebarLink {
   imgURL: string;
@@ -46,19 +53,9 @@ export interface BadgeCounts {
   BRONZE: number;
 }
 
-export type BadgeCriteriaType = keyof typeof BADGE_CRITERIA;
-
-export interface resultProp {
-  clerkId: string;
+export interface IFilterOptions {
   name: string;
-  username: string;
-  email: string;
-  password?: string;
-  bio?: string;
-  picture: string;
-  location?: string;
-  portfolioWebsite?: string;
-  reputation?: number;
-  saved: string[];
-  joinedAt: Date;
+  value: string;
 }
+
+export type BadgeCriteriaType = keyof typeof BADGE_CRITERIA;
