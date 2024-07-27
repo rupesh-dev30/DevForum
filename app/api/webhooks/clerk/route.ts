@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
@@ -84,7 +83,7 @@ export async function POST(req: Request) {
         username: username!,
         email: email_addresses[0].email_address,
         picture: image_url,
-      },
+      },  
       path: `/profile/${id}`,
     });
 

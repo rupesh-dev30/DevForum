@@ -3,7 +3,7 @@ const nextConfig = {
   experimental: {
     mdxRs: true,
     serverComponentsExternalPackages: ['mongoose']
-  }
+  },
 };
 
 export default nextConfig;
