@@ -5,19 +5,19 @@ import { connectToDatabase } from "../mongoose";
 import Tag from "@/database/tag.model";
 import { CreateQuestionParams, GetQuestionsParams } from "./shared.types";
 import { revalidatePath } from "next/cache";
+import User from "@/database/user.model";
 
 export async function getQuestions(params: GetQuestionsParams) {
   try {
     connectToDatabase();
-
     const questions = await Question.find({})
       .populate({
         path: "tags",
-        model: Tag,
+        model: "Tag",
       })
       .populate({
         path: "author",
-        model: "User",
+        model: User,
       })
       .sort({ createdAt: -1 });
 
