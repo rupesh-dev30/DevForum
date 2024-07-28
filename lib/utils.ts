@@ -30,7 +30,7 @@ export const getTimeStamp = (createdAt: Date): string => {
 
 // Example usage:
 const createdAt = new Date("2024-07-10T12:00:00.000Z");
-console.log(getTimeStamp(createdAt)); // Output will vary based on current date and time
+// console.log(getTimeStamp(createdAt)); // Output will vary based on current date and time
 
 export const formatNumber = (num: number): string => {
   if (num >= 1_000_000_000) {
