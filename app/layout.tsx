@@ -1,8 +1,9 @@
 import { ClerkProvider, UserButton } from "@clerk/nextjs";
-import "./globals.css";
 import { Inter, Space_Grotesk } from "next/font/google";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/context/ThemeProvider";
+import "./globals.css";
+import "../styles/prism.css"
 
 export const metadata: Metadata = {
   title: "DevForum",

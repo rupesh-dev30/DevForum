@@ -80,7 +80,7 @@ export async function getQuestionById(params: GetQuestionByIdParams) {
         model: Tag,
         select: "_id name",
       })
-      .populate({ path: "author", model: User, select: "_id clerk name picture" });
+      .populate({ path: "author", model: User, select: "_id clerkId name picture" });
 
       return question;
   } catch (error) {
