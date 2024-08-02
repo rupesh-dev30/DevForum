@@ -3,7 +3,7 @@ import Filter from "./Filter";
 import { getAnswers } from "@/lib/actions/answer.action";
 import Link from "next/link";
 import Image from "next/image";
-import { getTimeStamp } from "@/lib/utils";
+import { getTimestamp } from "@/lib/utils";
 import ParseHTML from "./ParseHTML";
 import Votes from "./Votes";
 
@@ -54,11 +54,11 @@ export default async function AllAnswers({
                     </p>
 
                     <p className="small-regular text-light400_light500 mt-0.5 line-clamp-1 ml-0.5">
-                      answered {getTimeStamp(answer.createdAt)}
+                      answered {getTimestamp(answer.createdAt)}
                     </p>
                   </div>
                 </Link>
-                <div className="flex justify-end"><Votes /></div>
+                <div className="flex justify-end">{/*<Votes />*/}</div>
               </div>
             </div>
             <ParseHTML data={answer.content} />

@@ -1,5 +1,6 @@
-import { IUser } from "@/database/user.model";
 import { Schema } from "mongoose";
+
+import { IUser } from "@/mongodb";
 
 export interface CreateAnswerParams {
   content: string;
@@ -18,16 +19,19 @@ export interface GetAnswersParams {
 export interface AnswerVoteParams {
   answerId: string;
   userId: string;
-  hasUpvoted: boolean;
-  hasDownvoted: boolean;
+  hasupVoted: boolean;
+  hasdownVoted: boolean;
   path: string;
 }
 
-export interface GetQuestionsParams {
-  page?: number;
-  pageSize?: number;
-  searchQuery?: string;
-  filter?: string;
+export interface DeleteAnswerParams {
+  answerId: string;
+  path: string;
+}
+
+export interface SearchParams {
+  query?: string | null;
+  type?: string | null;
 }
 
 export interface RecommendedParams {
@@ -37,21 +41,21 @@ export interface RecommendedParams {
   searchQuery?: string;
 }
 
-export interface EditQuestionParams {
+export interface ViewQuestionParams {
   questionId: string;
-  title: string;
-  content: string;
-  path: string;
+  userId: string | undefined;
 }
 
-export interface DeleteQuestionParams {
-  questionId: string;
-  path: string;
+export interface JobFilterParams {
+  query: string;
+  page: string;
 }
 
-export interface DeleteAnswerParams {
-  answerId: string;
-  path: string;
+export interface GetQuestionsParams {
+  page?: number;
+  pageSize?: number;
+  searchQuery?: string;
+  filter?: string;
 }
 
 export interface CreateQuestionParams {
@@ -69,57 +73,21 @@ export interface GetQuestionByIdParams {
 export interface QuestionVoteParams {
   questionId: string;
   userId: string;
-  hasUpvoted: boolean;
-  hasDownvoted: boolean;
+  hasupVoted: boolean;
+  hasdownVoted: boolean;
   path: string;
 }
 
-export interface ToggleSaveQuestionParams {
-  userId: string;
+export interface DeleteQuestionParams {
   questionId: string;
   path: string;
 }
 
-export interface CreateUserParams {
-  clerkId: string;
-  name: string;
-  username: string;
-  email: string;
-  picture: string;
-}
-
-export interface UpdateUserParams {
-  clerkId: string;
-  updateData: Partial<IUser>;
+export interface EditQuestionParams {
+  questionId: string;
+  title: string;
+  content: string;
   path: string;
-}
-
-export interface DeleteUserParams {
-  clerkId: string;
-}
-
-export interface GetAllUsersParams {
-  page?: number;
-  pageSize?: number;
-  filter?: string;
-  searchQuery?: string; // Add searchQuery parameter
-}
-
-export interface GetUserByIdParams {
-  userId: string;
-}
-
-export interface GetSavedQuestionsParams {
-  clerkId: string;
-  page?: number;
-  pageSize?: number;
-  filter?: string;
-  searchQuery?: string;
-}
-
-export interface GetTopInteractedTagsParams {
-  userId: string;
-  limit?: number;
 }
 
 export interface GetAllTagsParams {
@@ -136,9 +104,48 @@ export interface GetQuestionsByTagIdParams {
   searchQuery?: string;
 }
 
-export interface ViewQuestionParams {
+export interface GetTopInteractedTagsParams {
+  userId: string;
+  limit?: number;
+}
+
+export interface CreateUserParams {
+  clerkId: string;
+  name: string;
+  username: string;
+  email: string;
+  picture: string;
+}
+
+export interface GetUserByIdParams {
+  userId: string;
+}
+
+export interface GetAllUsersParams {
+  page?: number;
+  pageSize?: number;
+  filter?: string;
+  searchQuery?: string; // Add searchQuery parameter
+}
+
+export interface UpdateUserParams {
+  clerkId: string;
+  updateData: Partial<IUser>;
+  path: string;
+}
+
+export interface ToggleSaveQuestionParams {
+  userId: string;
   questionId: string;
-  userId: string | undefined;
+  path: string;
+}
+
+export interface GetSavedQuestionsParams {
+  clerkId: string;
+  page?: number;
+  pageSize?: number;
+  filter?: string;
+  searchQuery?: string;
 }
 
 export interface GetUserStatsParams {
@@ -147,12 +154,6 @@ export interface GetUserStatsParams {
   pageSize?: number;
 }
 
-export interface SearchParams {
-  query?: string | null;
-  type?: string | null;
-}
-
-export interface JobFilterParams {
-  query: string;
-  page: string;
+export interface DeleteUserParams {
+  clerkId: string;
 }
