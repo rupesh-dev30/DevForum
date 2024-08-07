@@ -10,7 +10,7 @@ export const connectToDatabase = async () => {
   }
 
   if (isConnected) {
-    console.log("connected");
+    // console.log("connected");
   }
 
   // we have a url and we are not connected

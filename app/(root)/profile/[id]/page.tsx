@@ -91,8 +91,20 @@ export default async function Page({ params, searchParams }: URLProps) {
               Answers
             </TabsTrigger>
           </TabsList>
-          <TabsContent value="top-posts"><QuestionTab /></TabsContent>
-          <TabsContent value="answers"><AnswerTab /></TabsContent>
+          <TabsContent value="top-posts">
+            <QuestionTab
+              searchParams={searchParams}
+              userId={userInfo.user._id}
+              clerkId={clerkId}
+            />
+          </TabsContent>
+          <TabsContent value="answers" className="flex w-full flex-col gap-6">
+            <AnswerTab
+              searchParams={searchParams}
+              userId={userInfo.user._id}
+              clerkId={clerkId}
+            />
+          </TabsContent>
         </Tabs>
       </div>
     </>
