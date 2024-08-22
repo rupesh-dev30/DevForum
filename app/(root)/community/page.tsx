@@ -6,9 +6,10 @@ import { getAllUsers } from "@/lib/actions/user.action";
 import { SearchParamsProps } from "@/types";
 import Link from "next/link";
 
-export default async function page({searchParams}: SearchParamsProps) {
+export default async function page({ searchParams }: SearchParamsProps) {
   const result = await getAllUsers({
-    searchQuery: searchParams.q
+    searchQuery: searchParams.q,
+    filter: searchParams.filter,
   });
 
   return (
@@ -32,9 +33,7 @@ export default async function page({searchParams}: SearchParamsProps) {
 
       <section className="mt-12 flex flex-wrap gap-4">
         {result.users.length > 0 ? (
-          result.users.map((user) => (
-            <UserCard key={user._id} user={user} />
-          ))
+          result.users.map((user) => <UserCard key={user._id} user={user} />)
         ) : (
           <div className="paragraph-regular text-dark200_light800 mx-auto max-w-4xl text-center">
             <p>No users yet</p>
