@@ -24,6 +24,8 @@ export default function Pagination({ pageNumber, isNext }: Props) {
     });
 
     router.push(newUrl);
+
+    if(!isNext && pageNumber === 1) return null;
   }
 
   return (
