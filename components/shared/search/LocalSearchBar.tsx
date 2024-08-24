@@ -72,7 +72,7 @@ export default function LocalSearchBar({
         placeholder={placeholder}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="paragraph-regular no-focus placeholder background-light800_darkgradient border-none shadow-none outline-none"
+        className="paragraph-regular no-focus text-dark400_light700 placeholder background-light800_darkgradient border-none shadow-none outline-none"
       />
 
       {iconPosition === "right" && (
