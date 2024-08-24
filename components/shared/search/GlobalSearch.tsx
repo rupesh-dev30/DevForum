@@ -19,7 +19,9 @@ export default function GlobalSearch() {
 
   useEffect(() => {
     const handleOutsideClick = (event: any) => {
+      
       if(searchContainerRef.current && 
+        // @ts-ignore
         !searchContainerRef.current.contains(event.target)
       ) {
         setIsOpen(false);
@@ -28,7 +30,7 @@ export default function GlobalSearch() {
     }
 
     setIsOpen(false);
-    
+
     document.addEventListener("click", handleOutsideClick);
 
     return () => {
