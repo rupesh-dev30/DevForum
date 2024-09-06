@@ -7,13 +7,31 @@ import { getAllUsers } from "@/lib/actions/user.action";
 import { SearchParamsProps } from "@/types";
 import Link from "next/link";
 
-export default async function page({ searchParams }: SearchParamsProps) {
-  const result = await getAllUsers({
-    searchQuery: searchParams.q,
-    filter: searchParams.filter,
-    page: searchParams.page ? +searchParams.page : 1
-  });
+export default async function Page({ searchParams }: SearchParamsProps) {
+  let result;
 
+  try {
+    result = await getAllUsers({
+      searchQuery: searchParams.q,
+      filter: searchParams.filter,
+      page: searchParams.page ? +searchParams.page : 1,
+    });
+
+    // Convert users to plain objects if necessary
+    result.users = result.users.map(user => ({
+      _id: user._id.toString(),
+      clerkId: user.clerkId,
+      name: user.name,
+      username: user.username,
+      picture: user.picture,
+      // Add other fields as necessary
+    }));
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    result = { users: [], isNext: false };
+  }
+
+  const users = result?.users || [];
 
   return (
     <>
@@ -35,8 +53,10 @@ export default async function page({ searchParams }: SearchParamsProps) {
       </div>
 
       <section className="mt-12 flex flex-wrap gap-4">
-        {result.users.length > 0 ? (
-          result.users.map((user) => <UserCard key={user._id} user={user} />)
+        {users.length > 0 ? (
+          users.map(user => (
+            <UserCard key={user._id} user={user} />
+          ))
         ) : (
           <div className="paragraph-regular text-dark200_light800 mx-auto max-w-4xl text-center">
             <p>No users yet</p>
@@ -44,14 +64,13 @@ export default async function page({ searchParams }: SearchParamsProps) {
               Join to be the first!
             </Link>
           </div>
-          
         )}
       </section>
 
       <div className="mt-10">
         <Pagination
           pageNumber={searchParams?.page ? +searchParams.page : 1}
-          isNext={result.isNext}
+          isNext={result.isNext || false}
         />
       </div>
     </>
