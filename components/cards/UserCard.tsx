@@ -36,7 +36,7 @@ export default function UserCard({ user }: Props) {
           alt="user profile picture"
           width={100}
           height={100}
-          className="rounded-full"
+          className="rounded-full object-cover"
         />
 
         <div className="mt-4 text-center">
