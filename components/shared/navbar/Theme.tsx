@@ -36,19 +36,19 @@ export default function Theme() {
             />
           )}
         </MenubarTrigger>
-        <MenubarContent className="absolute right-[-3rem] mt-3 min-w-[120px] rounded border py-2 dark:border-dark-400 dark:bg-dark-300">
+        <MenubarContent className="absolute right-[-3rem] mt-3 min-w-[120px] rounded border py-2 dark:border-dark-400 dark:bg-dark-300 bg-light-900">
           {themes.map((item) => (
             <MenubarItem
               key={item.value}
               onClick={() => {
                 setMode(item.value);
-                if(item.value !== 'system'){
-                  localStorage.theme = item.value
+                if (item.value !== "system") {
+                  localStorage.theme = item.value;
                 } else {
-                  localStorage.removeItem('theme')
+                  localStorage.removeItem("theme");
                 }
               }}
-              className="flex items-center gap-4 px-2.5 py-2"
+              className="flex cursor-pointer items-center gap-4 px-2.5 py-2 focus:bg-light-800 dark:focus:bg-dark-400"
             >
               <Image
                 src={item.icon}
