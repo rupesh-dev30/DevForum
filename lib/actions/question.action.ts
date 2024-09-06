@@ -32,8 +32,8 @@ export async function getQuestions(params: GetQuestionsParams) {
 
     if (searchQuery) {
       query.$or = [
-        { title: { $regex: new RegExp(searchQuery, "i") } },
-        { content: { $regex: new RegExp(searchQuery, "i") } },
+        { title: { $regex: new RegExp(searchQuery, "i") } } as any,
+        { content: { $regex: new RegExp(searchQuery, "i") } } as any,
       ];
     }
 
@@ -47,11 +47,9 @@ export async function getQuestions(params: GetQuestionsParams) {
         sortOptions = { views: -1 };
         break;
       case "unanswered":
-        query.answers = { $size: 0 };
+        // @ts-ignore
+        query.answers = { $size: 0 } as any;
         break;
-      case "recommended":
-        break;
-
       default:
         break;
     }
@@ -339,14 +337,14 @@ export async function getRecommendedQuestions(params: RecommendedParams) {
 
     const query: FilterQuery<typeof Question> = {
       $and: [
-        { tags: { $in: distinctUserTagIds } }, // Questions with user's tags
+        { tags: { $in: distinctUserTagIds } } as any, // Questions with user's tags
         { author: { $ne: user._id } }, // Exclude user's own questions
       ],
     };
 
     if (searchQuery) {
       query.$or = [
-        { title: { $regex: searchQuery, $options: "i" } },
+        { title: { $regex: searchQuery, $options: "i" } } as any,
         { content: { $regex: searchQuery, $options: "i" } },
       ];
     }
