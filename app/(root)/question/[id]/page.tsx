@@ -45,11 +45,11 @@ export default async function page({ params, searchParams }: any) {
             <Votes
               type="Question"
               itemId={JSON.stringify(result._id)}
-              userId={JSON.stringify(mongoUser._id)}
+              userId={mongoUser && mongoUser._id ? JSON.stringify(mongoUser._id) : ""}
               upvotes={result.upvotes.length}
-              hasupVoted={result.upvotes.includes(mongoUser._id)}
+              hasupVoted={mongoUser && mongoUser._id ? result.upvotes.includes(mongoUser._id) : false}
               downvotes={result.downvotes.length}
-              hasdownVoted={result.downvotes.includes(mongoUser._id)}
+              hasdownVoted={mongoUser && mongoUser._id ? result.downvotes.includes(mongoUser._id) : false}
               hasSaved={mongoUser?.saved.includes(result._id)}
             />
           </div>
@@ -98,7 +98,7 @@ export default async function page({ params, searchParams }: any) {
 
       <AllAnswers
         questionId={result._id}
-        userId={mongoUser._id}
+        userId={mongoUser && mongoUser._id}
         totalAnswers={result.answers.length}
         page={searchParams?.page}
         filter={searchParams?.filter}
@@ -107,7 +107,7 @@ export default async function page({ params, searchParams }: any) {
       <Answer
         question={result.content}
         questionId={JSON.stringify(result._id)}
-        authorId={JSON.stringify(mongoUser._id)}
+        authorId={mongoUser && mongoUser._id ? JSON.stringify(mongoUser._id) : ""}
       />
     </>
   );

@@ -20,14 +20,16 @@ import { createAnswer } from "@/lib/actions/answer.action";
 import { usePathname } from "next/navigation";
 
 interface Props {
-  question: string,
-  questionId: string,
-  authorId: string
+  question: string;
+  questionId: string;
+  authorId: string;
 }
 
-export default function Answer({question, questionId, authorId}: Props) {
+export default function Answer({ question, questionId, authorId }: Props) {
   const pathname = usePathname();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmittingAi, setIsSubmittingAi] = useState(false);
+
   const { mode } = useTheme();
 
   const editorRef = useRef(null);
@@ -48,18 +50,17 @@ export default function Answer({question, questionId, authorId}: Props) {
         author: JSON.parse(authorId),
         question: JSON.parse(questionId),
         path: pathname,
-      })
+      });
 
       form.reset();
 
-      if(editorRef.current){
+      if (editorRef.current) {
         const editor = editorRef.current as any;
 
         editor.setContent("");
       }
     } catch (error) {
       console.log(error);
-      
     } finally {
       setIsSubmitting(false);
     }
@@ -67,13 +68,10 @@ export default function Answer({question, questionId, authorId}: Props) {
 
   return (
     <div>
-      <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center sm:gap-2">
-        <h4 className="paragraph-semibold text-dark400_light800">Write your answer here</h4>
-
-        <Button className="btn light-border-2 gap-1.5 rounded-md px-4 py-2.5 text-primary-500 shadow-none dark:text-primary-500" onClick={() => {}}>
-          <Image src="/assets/icons/stars.svg" alt="star" width={12} height={12} className="object-contain"/>
-          Generate an AI Answer
-        </Button>
+      <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center sm:gap-2 mt-10">
+        <h4 className="paragraph-semibold text-dark400_light800">
+          Write your answer here
+        </h4>
       </div>
 
       <Form {...form}>
