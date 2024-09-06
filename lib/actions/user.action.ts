@@ -105,7 +105,7 @@ export async function getAllUsers(params: GetAllUsersParams) {
 
     if (searchQuery) {
       query.$or = [
-        { name: { $regex: new RegExp(searchQuery, "i") } },
+        { name: { $regex: new RegExp(searchQuery, "i") } } as any,
         { username: { $regex: new RegExp(searchQuery, "i") } },
       ];
     }
@@ -190,7 +190,7 @@ export async function getSavedQuestions(params: GetSavedQuestionsParams) {
     const skipAmount = (page - 1) * pageSize;
 
     const query: FilterQuery<typeof Question> = searchQuery
-      ? { title: { $regex: new RegExp(searchQuery, "i") } }
+      ? { title: { $regex: new RegExp(searchQuery, "i") } } as any
       : {};
 
     let sortOptions = {};
