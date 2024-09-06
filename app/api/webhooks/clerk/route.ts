@@ -83,7 +83,7 @@ export async function POST(req: Request) {
         username: username!,
         email: email_addresses[0].email_address,
         picture: image_url,
-      },  
+      },
       path: `/profile/${id}`,
     });
 
@@ -100,5 +100,5 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: "OK", user: deletedUser });
   }
 
-  return new Response("", { status: 201 });
+  return NextResponse.json({ message: "OK" });
 }
