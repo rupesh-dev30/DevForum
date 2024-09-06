@@ -23,9 +23,6 @@ export async function getTopInteractedTags(params: GetTopInteractedTagsParams) {
       throw new Error("User not found!");
     }
 
-    //Find interactions for the user and group by tags...
-    // Interaction...
-
     return [
       { _id: "1", name: "tag1" },
       { _id: "2", name: "tag2" },
@@ -48,7 +45,7 @@ export async function getAllTags(params: GetAllTagsParams) {
     const query: FilterQuery<typeof Tag> = {};
 
     if (searchQuery) {
-      query.$or = [{ name: { $regex: new RegExp(searchQuery, "i") } }];
+      query.$or = [{ name: { $regex: new RegExp(searchQuery, "i") } }] as any;
     }
 
     let sortOptions = {};
