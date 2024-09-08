@@ -8,7 +8,7 @@ import "../styles/prism.css"
 export const metadata: Metadata = {
   title: "DevForum",
   description:
-    "DevHub is the ultimate online forum for developers of all levels to connect, collaborate, and grow. Whether you're a seasoned professional or just starting out, DevHub provides a supportive and engaging environment where you can share knowledge, seek advice, and find inspiration.",
+    "DevForum is the ultimate online forum for developers of all levels to connect, collaborate, and grow. Whether you're a seasoned professional or just starting out, DevHub provides a supportive and engaging environment where you can share knowledge, seek advice, and find inspiration.",
   icons: {
     icon: "/assets/images/site-logo.svg",
   },
