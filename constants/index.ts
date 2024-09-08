@@ -17,11 +17,11 @@ export const sidebarLinks: SidebarLink[] = [
     route: "/community",
     label: "Community",
   },
-  {
-    imgURL: "/assets/icons/star.svg",
-    route: "/collection",
-    label: "Collections",
-  },
+  // {
+  //   imgURL: "/assets/icons/star.svg",
+  //   route: "/collection",
+  //   label: "Collections",
+  // },
   {
     imgURL: "/assets/icons/tag.svg",
     route: "/tags",
