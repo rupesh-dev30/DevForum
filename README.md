@@ -86,13 +86,13 @@ git clone <url>
 ```
 
 Step 2: Install Dependencies
-
+```
 npm install
-
+```
 Step 3: Start the Development Server
-
+```
 npm run dev
-
+```
 Step 4: Open in Browser
 
 Visit http://localhost:3000 to see the application running.
@@ -125,9 +125,9 @@ NEXT_PUBLIC_SERVER_URL=<YOUR_SERVER_URL>
 Deploy to Production (Manual)
 
 Create an optimized production build:
-
+```
 npm run build
-
+```
 Deploy on Vercel (Recommended)
 
 The easiest way to deploy this Next.js app is using Vercel.
@@ -153,25 +153,24 @@ Contributions are always welcome! To contribute:
 
 
 2. Create a new branch
-
+```
 git checkout -b improve-feature
-
+```
 
 3. Make your changes
 
 
 4. Commit the changes
-
+```
 git commit -m "Improve feature"
-
+```
 
 5. Push to the branch
-
+```
 git push origin improve-feature
-
+```
 
 6. Create a Pull Request 🎉
-
 
 
 
@@ -214,12 +213,3 @@ This project follows best practices inspired by industry leaders and online reso
 
 
 ---
-
-⭐ Show Your Support
-
-If you found this project useful, star this repository! ⭐
-
-[![GitHub stars](https://img.shields.io/github/stars/ladunjexa/nextjs14-devoverflow.svg?style=social)](https://github.com/ladunjexa/nextjs14-devoverflow/stargazers)
-
-This README provides a well-structured and professional format for your **DevOverflow** project. Let me know if you need any modifications! 🚀
-
