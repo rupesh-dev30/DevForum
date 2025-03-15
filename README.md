@@ -1,4 +1,4 @@
-# DevOverflow
+# DevForum
 
 🚀 **Live Demo**  
 Explore the live demonstration of the project: **[DevOverflow](https://your-live-demo-link.com)**  
@@ -82,8 +82,8 @@ Before running the project, set up the required services:
 ### Step 1: Clone Repository  
 
 ```bash
-git clone https://github.com/ladunjexa/nextjs14-devoverflow.git
-cd nextjs14-devoverflow
+git clone <url>
+```
 
 Step 2: Install Dependencies
 
@@ -97,18 +97,13 @@ Step 4: Open in Browser
 
 Visit http://localhost:3000 to see the application running.
 
-
----
-
-📜 Scripts
-
-
 ---
 
 🔒 Environment Variables
 
 Create a .env file in the root directory and add the following:
 
+```
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<CLERK_PUBLISHABLE_KEY>
 CLERK_SECRET_KEY=<CLERK_SECRET_KEY>
 NEXT_CLERK_WEBHOOK_SECRET=<CLERK_WEBHOOK_SECRET>
@@ -121,7 +116,7 @@ NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/onboarding
 NEXT_PUBLIC_TINYMCE_API_KEY=<YOUR_TINY_MCE_API_KEY>
 MONGODB_URL=<YOUR_MONGODB_URL>
 NEXT_PUBLIC_SERVER_URL=<YOUR_SERVER_URL>
-
+```
 
 ---
 
