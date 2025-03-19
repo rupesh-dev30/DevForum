@@ -1,7 +1,7 @@
 # DevForum
 
 🚀 **Live Demo**  
-Explore the live demonstration of the project: **[DevOverflow](https://your-live-demo-link.com)**  
+Explore the live demonstration of the project: **[DevOverflow](https://devforum-eight.vercel.app/)**  
 
 ---
 
@@ -82,7 +82,7 @@ Before running the project, set up the required services:
 ### Step 1: Clone Repository  
 
 ```bash
-git clone <url>
+git clone https://github.com/rupesh-dev30/DevForum.git
 ```
 
 Step 2: Install Dependencies
